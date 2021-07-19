@@ -1,0 +1,15 @@
+.p-home {
+  $root: &;
+  $global-nav-height: 72px;
+  $shortcut-nav-height: 83px;
+
+  overflow: hidden;
+
+  &__body {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    margin: 20px;
+  }
+}
