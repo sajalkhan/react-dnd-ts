@@ -1,0 +1,118 @@
+/**
+ * Colors
+ *
+ * * `primary` and `secondary` ==> For UI, decoration (exclude for graph)
+ * * `text` ==> For text
+ * * `base` ==> For Background
+ * * `shadow` ==> For Box Shadow
+ * * `line` ==> For border (e.g. hr, table)
+ * * `graph` ==> For graph
+ *
+ * NOTE: Names (except for "primary") are from `yarn utils:get-color-name`
+ */
+
+$color-primary-purple: #b60081;
+
+$color-primary-purple-gradient: linear-gradient(90deg, #e369c6, #b60081);
+$color-primary-purple-v-gradient: linear-gradient(0deg, #e369c6, #b60081);
+$color-secondary-purple-gradient: linear-gradient(90deg, #fdefd5, #fad0f2);
+$color-secondary-purple-v-gradient: linear-gradient(180deg, #fdefd5, #fad0f2);
+$color-primary-grey-gradient: linear-gradient(90deg, #97889b, #7c6e80);
+$color-primary-grey-v-gradient: linear-gradient(0deg, #97889b, #7c6e80);
+$color-primary-grey: #7c6e80;
+$color-secondary-grey: #97889b;
+$color-primary-red: #eb4141;
+$color-primary-blue-gradient: linear-gradient(90deg, #3980e2, #20bce3);
+$color-primary-blue-gradient-reverse: linear-gradient(90deg, #20bce3, #3980e2);
+$color-primary-blue-v-gradient: linear-gradient(180deg, #3980e2, #20bce3);
+$color-primary-blue: #3980e2;
+$color-secondary-blue: #6592d9;
+
+$color-black: #373a44;
+$color-grey-1: #bab6ba;
+$color-grey-2: #dddddd;
+$color-grey-3: #e8e9ed;
+$color-grey-4: #f5f5f5;
+$color-grey-5: #e8e8eb;
+$color-grey-6: #998f9c;
+$color-grey-7: #d3d5dc;
+$color-white: #ffffff;
+$color-yellow: #f7aa3e;
+
+// Text
+$color-text-white: #ffffff;
+$color-text-black: #373a44;
+$color-text-gray: #888888;
+$color-text-gainsboro: #dedede;
+$color-text-primary-grey: #7c6e80;
+
+// Background
+$color-base-pitch-black: #000000;
+$color-base-black: #373a44;
+$color-base-dimgray: #6f6373;
+$color-base-silver: #bfb4be;
+$color-base-lightgray: #d8cad7;
+$color-base-lavender: #e8e8e8;
+$color-base-white: #ffffff;
+$color-base-mistyrose: #fad0f1;
+$color-base-thistle: #edc5e4;
+$color-base-snow: #fffaf7;
+$color-base-snow2: #fcf6f8;
+$color-base-linen: #f2eeeb;
+$color-base-whitesmoke: #f4f4f7;
+$color-base-white-gradient: linear-gradient(
+  90deg,
+  $color-base-white,
+  $color-base-snow
+);
+$color-base-darkmagenta: #a80079;
+$color-base-royalblue: #3678d6;
+$color-base-ghostwhite: #ece9ec;
+$color-base-white-convulvulus: #f4f2f4;
+$color-base-whisper: #fbfafc;
+$color-base-mantis: #77ca59;
+$color-base-toast: rgba(119, 202, 89, 0.9);
+
+// LINE
+$color-line-black: #373a44;
+$color-line-white: #ffffff;
+$color-line-gray: #e8e9ed;
+$color-line-light-gray: #dcdde0;
+
+// IE 11 Support
+/* stylelint-disable */
+$color-primary-purple-gradient-ms: -ms-linear-gradient(90deg, #e369c6, #b60081);
+$color-primary-purple-v-gradient-ms: -ms-linear-gradient(
+  0deg,
+  #e369c6,
+  #b60081
+);
+$color-secondary-purple-gradient-ms: -ms-linear-gradient(
+  90deg,
+  #fdefd5,
+  #fad0f2
+);
+$color-secondary-purple-v-gradient-ms: -ms-linear-gradient(
+  180deg,
+  #fdefd5,
+  #fad0f2
+);
+$color-primary-grey-gradient-ms: -ms-linear-gradient(90deg, #97889b, #7c6e80);
+$color-primary-grey-v-gradient-ms: -ms-linear-gradient(0deg, #97889b, #7c6e80);
+$color-primary-blue-gradient-ms: -ms-linear-gradient(90deg, #3980e2, #20bce3);
+$color-primary-blue-gradient-reverse-ms: -ms-linear-gradient(
+  90deg,
+  #20bce3,
+  #3980e2
+);
+$color-primary-blue-v-gradient-ms: -ms-linear-gradient(
+  180deg,
+  #3980e2,
+  #20bce3
+);
+$color-base-white-gradient-ms: -ms-linear-gradient(
+  90deg,
+  $color-base-white,
+  $color-base-snow
+);
+/* stylelint-enable */

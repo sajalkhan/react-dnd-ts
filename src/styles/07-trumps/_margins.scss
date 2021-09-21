@@ -1,0 +1,27 @@
+.m-section {
+  &.p-footer-action {
+    max-width: 513px;
+    margin: 0 auto;
+
+    &--small {
+      max-width: 338px;
+    }
+
+    .a-button {
+      height: 44px;
+      &:not(.a-button--square) {
+        border-radius: 22px;
+      }
+    }
+
+    [class$='-link'] {
+      display: block;
+      margin-top: 24px;
+      text-align: center;
+    }
+  }
+}
+
+.a-button + .o-dnd-list-container {
+  margin-top: 8px;
+}

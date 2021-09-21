@@ -4,43 +4,47 @@ import React, { useRef, useEffect } from "react";
 // with their height.
 // Each item has to have an inner container, used to calculate
 // its overflow. Check GridItem component for an example.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function adjustGridItemsHeight(grid: any) {
-  const items = grid.children;
-
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-
-    const rowHeight = parseInt(
-      window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
-    );
-    const rowGap = parseInt(
-      window.getComputedStyle(grid).getPropertyValue("grid-row-gap")
-    );
-    const rowSpan = Math.ceil(
-      (item.firstChild.getBoundingClientRect().height + rowGap) /
-        (rowHeight + rowGap)
-    );
-
-    item.style.gridRowEnd = "span " + rowSpan;
-    // item.style.gridColumnEnd = 'span ' + 2;
+export const adjustGridItemsHeight = (
+  item: HTMLElement,
+  childItem: Element
+) => {
+  const container = childItem.closest(".m-container__grid-wrapper");
+  if (!item || !childItem || !container) {
+    return;
   }
-}
+  const rowHeight = parseInt(
+    window.getComputedStyle(container).getPropertyValue("grid-auto-rows")
+  );
+  const rowGap = parseInt(
+    window.getComputedStyle(container).getPropertyValue("grid-row-gap")
+  );
+  const rowSpan = Math.ceil(
+    (childItem.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap)
+  );
+  item.style.gridRowEnd = "span " + rowSpan;
+};
 
 export interface CardProps {
   children?: React.ReactNode;
 }
 
 const Grid: React.FC<CardProps> = ({ children }) => {
-  const gridRef = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const grid = gridRef.current;
-    adjustGridItemsHeight(grid);
+    if (ref.current) {
+      const items = ref.current.children;
+      for (let i = 0; i < items.length; i++) {
+        adjustGridItemsHeight(
+          items[i] as HTMLElement,
+          items[i].firstChild as Element
+        );
+      }
+    }
   });
 
   return (
-    <div className="m-container__grid-wrapper" ref={gridRef}>
+    <div className="m-container__grid-wrapper" ref={ref}>
       {children}
     </div>
   );

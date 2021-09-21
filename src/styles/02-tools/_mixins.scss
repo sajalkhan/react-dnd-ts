@@ -1,0 +1,62 @@
+@mixin pc() {
+  @media (min-width: $breakpoint-sp + 1) {
+    @content;
+  }
+}
+
+@mixin sp() {
+  @media (max-width: $breakpoint-sp) {
+    @content;
+  }
+}
+
+@mixin wide-pc {
+  @media (min-width: $breakpoint-small-pc) {
+    @content;
+  }
+}
+
+@mixin card-info {
+  padding: 21px 20px;
+  background: rgba($color-base-white, 80%);
+  border-top-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 24px;
+  box-shadow: 0 8px 24px rgba($color-base-black, 5%);
+  transition: box-shadow 0.25s, max-width 0.25s;
+  backdrop-filter: blur(3px) brightness(1);
+
+  &:hover {
+    box-shadow: 0 32px 64px rgba($color-base-black, 10%);
+  }
+}
+
+// Convert Image aspectRatio
+@mixin aspectRatio($width: 1, $height: 1) {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-bottom: ($height / $width) * 100%;
+  & > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin bg-gradient($deg, $list) {
+  background: linear-gradient($deg, $list);
+}
+
+@mixin transitions($props, $transition) {
+  $transitions: ();
+  @each $prop in $props {
+    $transitions: append($transitions, join($prop, $transition, space), comma);
+  }
+
+  transition: $transitions;
+}

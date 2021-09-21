@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import "./index.scss";
 
 import { DndProvider } from "react-dnd";
 import update from "immutability-helper";
@@ -29,31 +28,28 @@ const Home: React.FC = () => {
   );
 
   return (
-    <div className="p-home">
-      <div className="p-home__body">
-        <DndProvider backend={MultiBackend as any} options={HTML5toTouch}>
-          <Grid>
-            {cards.map((card, indx) => (
-              <DraggableGridItem
-                key={card.id}
-                index={indx}
-                id={card.id}
-                moveCard={moveCard}
-              >
-                <div>
-                  <p>{card.id}</p>
-                  {card.info.map((i, index) => (
-                    <p key={index}>
-                      <b>{i.label}</b> : {i.value}
-                    </p>
-                  ))}
-                </div>
-              </DraggableGridItem>
-            ))}
-          </Grid>
-        </DndProvider>
-      </div>
-    </div>
+    <DndProvider backend={MultiBackend as any} options={HTML5toTouch}>
+      <Grid>
+        {cards.map((card, indx) => (
+          <DraggableGridItem
+            key={card.id}
+            index={indx}
+            id={card.id}
+            moveCard={moveCard}
+            gridColumn={card.column === "1" ? "1 / -1" : "auto"}
+          >
+            <div>
+              <p>{card.id}</p>
+              {card.info.map((i, index) => (
+                <p key={index}>
+                  <b>{i.label}</b> : {i.value}
+                </p>
+              ))}
+            </div>
+          </DraggableGridItem>
+        ))}
+      </Grid>
+    </DndProvider>
   );
 };
 

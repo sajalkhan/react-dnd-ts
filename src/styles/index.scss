@@ -1,0 +1,11 @@
+/**
+ * ITCSS Structure
+ * https://speakerdeck.com/dafed/managing-css-projects-with-itcss?slide=49
+ *
+ * Settings............ Global variables, config swtiches
+ * Tools............... Default mixin and functions
+ * Trumps.............. Helpers and overrides (!important)
+ */
+@import "01-settings";
+@import "02-tools";
+@import "07-trumps";
