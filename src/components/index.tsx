@@ -3,9 +3,9 @@ import React, { useCallback, useState } from "react";
 import { DndProvider } from "react-dnd";
 import update from "immutability-helper";
 import MultiBackend from "react-dnd-multi-backend";
-import HTML5toTouch from "../utils/html5toTouch";
-import DraggableGridItem from "../utils/draggableGridItem";
-import Grid from "../utils/grid";
+import { HTML5toTouch } from "libs/react-dnd";
+import DraggableGridItem from "utils";
+import Grid from "utils/grid";
 
 import Data from "./data";
 
