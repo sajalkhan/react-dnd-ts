@@ -1,6 +1,6 @@
-import React, { FC, useRef } from "react";
-import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
-import "./index.scss";
+import React, { FC, useRef } from 'react';
+import { useDrag, useDrop, DropTargetMonitor } from 'react-dnd';
+import './index.scss';
 
 export interface CardProps {
   id: string;
@@ -17,16 +17,10 @@ interface DragItem {
 }
 
 export const ItemTypes = {
-  CARD: "card",
+  CARD: 'card',
 };
 
-const DraggableGridItem: FC<CardProps> = ({
-  id,
-  index,
-  gridColumn = "auto",
-  children,
-  moveCard,
-}) => {
+const DraggableGridItem: FC<CardProps> = ({ id, index, gridColumn = 'auto', children, moveCard }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [{ handlerId }, drop] = useDrop({
     accept: ItemTypes.CARD,
@@ -46,8 +40,7 @@ const DraggableGridItem: FC<CardProps> = ({
       }
 
       const hoverBoundingRect = ref.current?.getBoundingClientRect();
-      const hoverMiddleY =
-        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
       const clientOffset = monitor.getClientOffset() || { x: 0, y: 0 };
       const hoverClientY = clientOffset.y - hoverBoundingRect.top;
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
@@ -67,7 +60,7 @@ const DraggableGridItem: FC<CardProps> = ({
     item: () => {
       return { id, index };
     },
-    collect: (monitor) => ({
+    collect: monitor => ({
       isDragging: monitor.isDragging(),
     }),
   });
@@ -76,12 +69,7 @@ const DraggableGridItem: FC<CardProps> = ({
   drag(drop(ref));
 
   return (
-    <div
-      className="m-container"
-      ref={ref}
-      style={{ opacity, gridColumn }}
-      data-handler-id={handlerId}
-    >
+    <div className="m-container" ref={ref} style={{ opacity, gridColumn }} data-handler-id={handlerId}>
       {children}
     </div>
   );
